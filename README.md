@@ -1,7 +1,7 @@
 # Solar Power Forecasting – Week 2 Internship Project
 
 ## Project Overview
-This project is part of the **AICTE Edunet Foundation Internship** under the theme **Sustainable Energy & Efficiency**.  
+This project is part of the **AICTE Edunet Foundation Internship** under the theme **Sustainable Energy & Efficiency**. 
 The goal of Week 2 is to **explore solar power generation data**, visualize trends, and analyze daily solar energy production.
 
 
