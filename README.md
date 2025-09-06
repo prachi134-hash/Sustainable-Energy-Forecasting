@@ -131,7 +131,7 @@ Solar-Power-Forecasting/
 ---
 
 ## Author
-**Your Name** – [Your GitHub Profile](https://github.com/prachi134-hash)  
+**Prachi Manwar** – [Your GitHub Profile](https://github.com/prachi134-hash)  
 
 ---
 
