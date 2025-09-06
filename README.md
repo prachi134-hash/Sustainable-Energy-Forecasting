@@ -1,49 +1,142 @@
-# Solar Power Forecasting – Week 2 Internship Project
+# 🌞 Solar Power Forecasting (Week 2 Project)
 
 ## Project Overview
-This project is part of the **AICTE Edunet Foundation Internship** under the theme **Sustainable Energy & Efficiency**. 
-The goal of Week 2 is to **explore solar power generation data**, visualize trends, and analyze daily solar energy production.
+This project uses **solar power plant generation and weather sensor data** to predict AC Power output using machine learning.  
 
+**Objective:** Forecast daily energy generation based on historical data and weather features.
 
-## Dataset
-The dataset contains solar power generation data from a solar plant:
+**Dataset:**  
+- Plant 1 & Plant 2 Generation Data (`AC_POWER`, `DC_POWER`, `DAILY_YIELD`, `TOTAL_YIELD`)  
+- Plant 1 & Plant 2 Weather Data (`AMBIENT_TEMPERATURE`, `MODULE_TEMPERATURE`, `IRRADIATION`)  
 
-| Column        | Description                                     |
-|---------------|-------------------------------------------------|
-| DATE_TIME     | Timestamp of the measurement                    |
-| PLANT_ID      | Unique ID of the solar plant                    |
-| SOURCE_KEY    | Panel/source identifier                         |
-| DC_POWER      | Direct current power (kW)                       |
-| AC_POWER      | Alternating current power (kW)                  |
-| DAILY_YIELD   | Energy generated on that day (kWh)              |
-| TOTAL_YIELD   | Cumulative energy generated (kWh)               |
+---
 
-**Files in the `data/` folder:**  
-- `Plant_1_Generation_Data.csv` (used in Week 2 analysis)  
-- Additional CSVs for future weeks/projects  
+## Workflow
 
+### 1️⃣ Data Preprocessing
+- Converted `DATE_TIME` to datetime objects.  
+- Merged generation and weather data for each plant.  
+- Combined datasets for both plants.  
+- Filled missing values with median; dropped rows missing `DATE_TIME`.  
 
-## Implementation
-- Loaded and explored the solar power generation dataset using Pandas.  
-- Checked dataset info, shape, and missing values.  
-- Converted `DATE_TIME` to datetime format.  
-- Plotted **daily solar power generation trends**.  
-- Plotted **distribution of daily yield**.  
-- Added observations summarizing key patterns in solar power generation.
+### 2️⃣ Exploratory Data Analysis (EDA)
+- **Daily AC Power Trend:** Line plot to observe daily total power generation.  
+- **Distribution of AC Power:** Histogram to check range and frequency.  
+- **Correlation Analysis:** Heatmap to study relationships between weather features and AC Power.  
 
+### 3️⃣ Feature Selection
+- Selected features:  
+  - `DC_POWER`  
+  - `AMBIENT_TEMPERATURE`  
+  - `MODULE_TEMPERATURE`  
+  - `IRRADIATION`  
+- Target variable: `AC_POWER`
 
-## Observations
-- Solar power generation varies day to day depending on weather conditions.  
-- Peak generation occurs on sunny days; low or zero generation occurs at night.  
-- Most daily yields are within a certain range, as seen in the histogram.
+### 4️⃣ Model Training
+- Trained **Linear Regression** and **Random Forest Regressor** models.  
+- Split dataset into **80% train / 20% test**.  
 
+### 5️⃣ Model Evaluation
+- Evaluated models using:  
+  - **MAE (Mean Absolute Error)**  
+  - **MSE (Mean Squared Error)**  
+  - **RMSE (Root Mean Squared Error)**  
+  - **R² Score**
 
-## Files
-- `Solar_Forecasting_Week2.ipynb` → Colab notebook with code, plots, and observations  
-- `data/` → Folder containing all CSV dataset files  
+**Model Performance Comparison:**
 
+| Model               | MAE     | MSE      | RMSE  | R² Score |
+|--------------------|---------|----------|-------|----------|
+| Linear Regression  | 73.24   | 24219.20 | 155.53| 0.89     |
+| Random Forest      | 0.20    | 4.95     | 2.22  | 1.00     |
+
+> Random Forest outperformed Linear Regression in predicting AC Power.
+
+### 6️⃣ Feature Importance
+- Random Forest shows **IRRADIATION** as the most influential feature.  
+- DC Power, Ambient Temperature, and Module Temperature also contribute to predictions.  
+
+---
+
+## Visualizations
+- Daily AC Power trend line plot  
+- AC Power distribution histogram  
+- Correlation heatmap  
+- Predicted vs Actual scatter plots for Linear Regression and Random Forest  
+
+---
+
+## Saved Model
+- Trained Random Forest model saved as: `rf_ac_power_model.pkl`  
+- Can be used for prediction without retraining.
+
+---
+
+## Observations & Insights
+- AC Power shows **seasonal trends** with occasional peaks.  
+- Random Forest provides **higher accuracy** with minimal error.  
+- IRRADIATION is the key predictor of AC Power.  
+
+---
 
 ## Future Work
-- Integrate **weather data** to improve solar power predictions.  
-- Implement **machine learning models** for solar power forecasting.  
-- Extend analysis to multiple plants and sources for comparative insights.  
+- Explore **advanced models** like Gradient Boosting, XGBoost, or LSTM for better forecasting.  
+- Deploy interactive **prediction app** using Streamlit, Gradio, or Flask.  
+- Include additional panel/weather features to improve model accuracy.  
+
+---
+
+## How to Run
+1. Clone the repository:  
+   ```bash
+   git clone <your-repo-url>
+Install dependencies:
+
+bash
+Copy code
+pip install -r requirements.txt
+2. Open the notebook (`.ipynb`) in **Google Colab** or **Jupyter Notebook**.  
+3. Run all cells step by step to reproduce results and visualizations.  
+4. Use the saved Random Forest model (`rf_ac_power_model.pkl`) to make predictions **without retraining**.
+
+---
+
+## Requirements
+Create a `requirements.txt` file with the following packages for easy setup:
+
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+joblib
+
+yaml
+Copy code
+
+---
+
+## Folder Structure (Example)
+Solar-Power-Forecasting/
+│
+├── Plant_1_Generation_Data.csv
+├── Plant_2_Generation_Data.csv
+├── Plant_1_Weather_Sensor_Data.csv
+├── Plant_2_Weather_Sensor_Data.csv
+├── Solar_Power_Forecasting_Week2.ipynb
+├── rf_ac_power_model.pkl
+├── requirements.txt
+└── README.md
+
+yaml
+Copy code
+
+---
+
+## Author
+**Your Name** – [Your GitHub Profile](https://github.com/prachi134-hash)  
+
+---
+
+## License
+This project is open-source and available under the MIT License.  
