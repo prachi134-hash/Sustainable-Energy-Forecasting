@@ -90,14 +90,14 @@ This project uses **solar power plant generation and weather sensor data** to pr
 1. Clone the repository:  
    ```bash
    git clone <your-repo-url>
-Install dependencies:
+2.Install dependencies:
 
-bash
-Copy code
-pip install -r requirements.txt
-2. Open the notebook (`.ipynb`) in **Google Colab** or **Jupyter Notebook**.  
-3. Run all cells step by step to reproduce results and visualizations.  
-4. Use the saved Random Forest model (`rf_ac_power_model.pkl`) to make predictions **without retraining**.
+  ```bash
+  pip install -r requirements.txt
+
+3. Open the notebook (`.ipynb`) in **Google Colab** or **Jupyter Notebook**.  
+4. Run all cells step by step to reproduce results and visualizations.  
+5. Use the saved Random Forest model (`rf_ac_power_model.pkl`) to make predictions **without retraining**.
 
 ---
 
