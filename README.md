@@ -94,6 +94,7 @@ This project uses **solar power plant generation and weather sensor data** to pr
 
   ```bash
   pip install -r requirements.txt
+```
 
 3. Open the notebook (`.ipynb`) in **Google Colab** or **Jupyter Notebook**.  
 4. Run all cells step by step to reproduce results and visualizations.  
@@ -111,8 +112,6 @@ seaborn
 scikit-learn
 joblib
 
-yaml
-Copy code
 
 ---
 
@@ -128,8 +127,6 @@ Solar-Power-Forecasting/
 ├── requirements.txt
 └── README.md
 
-yaml
-Copy code
 
 ---
 
